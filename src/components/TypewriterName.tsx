@@ -54,8 +54,8 @@ export default function TypewriterName() {
   }, [currentName.length, isDeleting, visibleLength]);
 
   return (
-    <span className="inline-flex min-h-[1.08em] items-center">
-      <span>{renderColoredName(visibleName)}</span>
+    <span className="flex h-full w-full items-center whitespace-nowrap">
+      <span className="inline-block min-w-[5.25ch]">{renderColoredName(visibleName)}</span>
       <span className="ml-2 h-[0.88em] w-[0.08em] animate-caret bg-cyan-200 shadow-[0_0_18px_rgba(103,232,249,0.75)]" />
     </span>
   );

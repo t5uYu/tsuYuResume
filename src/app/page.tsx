@@ -74,19 +74,19 @@ const projects = [
 const skillGroups = [
   {
     title: "编程语言",
-    skills: ["C++", "C++11", "Python", "TypeScript", "UnLua"],
+    skills: ["C++", "Python", "JavaScript", "UnLua"],
   },
   {
     title: "UE 开发",
-    skills: ["UE5", "蓝图 / C++ 混合开发", "反射与 GC", "GAS", "Pak 打包", "资产管理"],
+    skills: ["蓝图与 C++ 混合开发", "GameplayAbilitySystem", "资产管理", "包体构建"],
   },
   {
     title: "工具与中间件",
-    skills: ["Wwise", "Wwise Profiler", "WAAPI", "MCP", "Cursor", "Docker"],
+    skills: ["Wwise", "MCP", "WebSocket", "FastAPI"],
   },
   {
     title: "系统方向",
-    skills: ["UGC Editor", "Runtime Asset Import", "JWT Auth", "FastAPI", "LLM Tools"],
+    skills: ["UGC Editor", "LLM Tools"],
   },
 ];
 
@@ -174,14 +174,14 @@ export default function Home() {
             <p className="mb-6 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 font-mono text-xs font-medium text-emerald-200 shadow-[0_0_28px_rgba(16,185,129,0.12)]">
               ● UE 游戏客户端开发 · 腾讯 IEG 天美 T1
             </p>
-            <h1 className="font-mono text-6xl font-black tracking-[-0.08em] text-white drop-shadow-[0_0_30px_rgba(148,163,184,0.16)] sm:text-7xl lg:text-8xl">
+            <h1 className="flex h-24 w-full max-w-[520px] items-center overflow-hidden font-mono text-6xl font-black tracking-[-0.08em] text-white drop-shadow-[0_0_30px_rgba(148,163,184,0.16)] sm:h-28 sm:text-7xl lg:h-32 lg:text-8xl">
               <TypewriterName />
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-9 text-slate-400">
               聚焦 UE5 游戏客户端、资产管线、Wwise 音频工具链与轻量 UGC 系统。当前在腾讯 IEG 天美 T1 工作室参与《元梦之星》项目客户端开发。
             </p>
             <div className="mt-8 flex flex-wrap gap-3 font-mono text-xs font-medium">
-              {["UE5", "C++", "UnLua", "Pak Pipeline", "Wwise", "UGC System", "FastAPI"].map(
+              {["UE5", "C++", "UnLua", "AssetPipeline", "Wwise", "UGC System"].map(
                 (tag) => (
                   <span key={tag} className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-slate-400">
                     {tag}
@@ -198,15 +198,24 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <aside className="rounded-xl border border-white/10 bg-[#0b1220]/70 p-2 shadow-2xl shadow-black/30 backdrop-blur">
-            <div className="rounded-lg border border-white/[0.06] bg-slate-950/60 p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.35em] text-cyan-300">Education</p>
-              <h2 className="mt-4 text-2xl font-semibold text-white">武汉科技大学</h2>
-              <p className="mt-2 text-slate-300">软件工程 · 本科 · 2022.09 — 2026.06</p>
-              <div className="mt-6 h-px bg-white/10" />
-              <p className="mt-6 text-sm leading-7 text-slate-400">
-                主修课程：数据结构、面向对象程序设计、计算机网络、操作系统、软件设计与体系结构、软件工程、项目管理、软件测试、算法设计与分析。
-              </p>
+          <aside className="flex justify-start lg:justify-center">
+            <div className="w-full max-w-[380px] rounded-xl border border-cyan-200/10 bg-[#0b1220]/72 p-5 shadow-2xl shadow-black/25 backdrop-blur">
+              <div className="flex items-center gap-4">
+                <div className="grid h-11 w-11 place-items-center rounded-lg bg-cyan-300/10 text-xl">
+                  🎓
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-lg font-semibold text-white">武汉科技大学</h2>
+                    <span className="rounded-md border border-cyan-300/20 bg-cyan-300/10 px-2 py-1 font-mono text-xs font-semibold text-cyan-200">
+                      本科
+                    </span>
+                  </div>
+                  <p className="mt-2 font-mono text-sm text-slate-500">
+                    软件工程 · 2022.09 — 2026.06
+                  </p>
+                </div>
+              </div>
             </div>
           </aside>
         </section>
@@ -280,10 +289,13 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {skillGroups.map((group) => (
               <div key={group.title} className="rounded-xl border border-cyan-200/10 bg-[#0b1220]/72 p-5 shadow-xl shadow-black/10">
-                <h3 className="font-semibold text-white">{group.title}</h3>
+                <h3 className="flex items-center gap-2 font-mono text-sm text-slate-500">
+                  <span className="text-cyan-400">•</span>
+                  {group.title}
+                </h3>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
-                    <span key={skill} className="rounded-md bg-slate-950/60 px-3 py-1.5 text-sm text-slate-300">
+                    <span key={skill} className="rounded-md border border-cyan-300/20 bg-cyan-300/[0.08] px-3 py-1.5 font-mono text-sm font-semibold text-sky-300 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
                       {skill}
                     </span>
                   ))}
